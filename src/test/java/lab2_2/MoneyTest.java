@@ -77,5 +77,16 @@ public class MoneyTest {
 	
 		assertThat(result.toString(), is(equalTo("20,00 USD")));
 	}
+	
+	@Test
+	public void testSubstractWhenDiffCurrencyAreGiven(){
+		Money a = new Money(40.00, "USD");
+		Money b = new Money(20.00, "EUR");
+
+	    thrown.expect(IllegalArgumentException.class);
+	    thrown.expectMessage(equalTo("Currency mismatch"));
+	    
+	    a.subtract(b);
+	}
 
 }
