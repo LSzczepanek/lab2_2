@@ -34,5 +34,15 @@ public class MoneyTest {
 		
 		assertThat(result.toString(), is(equalTo("82,00 EUR")));
 	}
+	
+	@Test
+	public void testAddMoney(){
+		Money a = new Money(50.00, "USD");
+		Money b = new Money(30.00, "USD");
+		
+		Money result = a.add(b);
+	
+		assertThat(result.toString(), is(equalTo("80,00 USD")));
+	}
 
 }
