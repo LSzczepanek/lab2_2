@@ -26,5 +26,13 @@ public class MoneyTest {
 		
 		assertThat(result.toString(), is(equalTo("100,00 EUR")));
 	}
+	
+	@Test
+	public void testIsMultiplayWorkingWithTypicalDoubleValue(){
+		Money moneyA = new Money (20.50, "EUR");
+		Money result = moneyA.multiplyBy(4.0);
+		
+		assertThat(result.toString(), is(equalTo("82,00 EUR")));
+	}
 
 }
