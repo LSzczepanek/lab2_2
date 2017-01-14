@@ -99,7 +99,16 @@ public class MoneyTest {
 		assertThat(result.toString(), is(equalTo("80,00 USD")));
 	}
 	
-	 
+	@Test
+	public void testAddMoneyWhenFirstCurrencyIsZero(){
+		Money a = new Money(0.00, "EUR");
+		Money b = new Money(18.00, "USD");
+		
+		Money result = a.add(b);
+
+		assertThat(result.toString(),is(equalTo("18,00 USD")));
+	}
+		 
 	@Test
 	public void testThrowsExceptionWhenDiffCurrencyAreGiven() {
 		Money a = new Money(40.00, "USD");
