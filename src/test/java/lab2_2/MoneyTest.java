@@ -24,6 +24,13 @@ public class MoneyTest {
 	}
 	
 	@Test
+	public void testNegativeMoneyHaveProperFormat(){
+		Money mon = new Money(-10, "USD");
+		
+		assertThat(mon.toString(), is(equalTo("-10,00 USD")));
+	}
+	
+	@Test
 	public void testIsMultiplayWorkingGood(){
 		Money moneyA = new Money (20, "EUR");
 		Money result = moneyA.multiplyBy(5.0);
