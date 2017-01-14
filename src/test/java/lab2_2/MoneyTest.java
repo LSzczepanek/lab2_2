@@ -52,6 +52,20 @@ public class MoneyTest {
 	}
 	
 	@Test
+	public void testRoundingUpNegativeCurrency(){
+		Money mon = new Money(-20.005, "USD");
+		
+		assertThat(mon.toString(), is(equalTo("-20,00 USD")));
+	}
+	
+	@Test
+	public void testRoundingDownNegativeCurrency(){
+		Money mon = new Money(-20.006, "USD");
+		
+		assertThat(mon.toString(), is(equalTo("-20,01 USD")));
+	}
+	
+	@Test
 	public void testIsMultiplayWorkingGood(){
 		Money moneyA = new Money (20, "EUR");
 		Money result = moneyA.multiplyBy(5.0);
