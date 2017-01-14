@@ -58,7 +58,7 @@ public class MoneyTest {
 	
 	 
 	@Test
-	public void throwsExceptionWhenNegativeNumbersAreGiven() {
+	public void testThrowsExceptionWhenDiffCurrencyAreGiven() {
 		Money a = new Money(40.00, "USD");
 		Money b = new Money(20.00, "EUR");
 	    // arrange
@@ -66,6 +66,16 @@ public class MoneyTest {
 	    thrown.expectMessage(equalTo("Currency mismatch"));
 	    // act
 	    a.add(b);
+	}
+	
+	@Test 
+	public void testSubstractMoney(){
+		Money a = new Money(50.00, "USD");
+		Money b = new Money(30.00, "USD");
+		
+		Money result = a.subtract(b);
+	
+		assertThat(result.toString(), is(equalTo("20,00 USD")));
 	}
 
 }
