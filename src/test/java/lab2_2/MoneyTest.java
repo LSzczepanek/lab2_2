@@ -88,5 +88,15 @@ public class MoneyTest {
 	    
 	    a.subtract(b);
 	}
+	
+	@Test 
+	public void testSubstractMoneyWhenSubstrahendIsHigher(){
+		Money a = new Money(30.00, "USD");
+		Money b = new Money(50.00, "USD");
+		
+		Money result = a.subtract(b);
+	
+		assertThat(result.toString(), is(equalTo("-20,00 USD")));
+	}
 
 }
