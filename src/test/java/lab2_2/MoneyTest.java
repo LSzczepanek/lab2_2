@@ -134,5 +134,14 @@ public class MoneyTest {
 		assertThat(result.toString(), is(equalTo("-20,00 USD")));
 	}
 	
+	@Test
+	public void testRoundedValuesAreEqual(){
+		Money a = new Money(30.00, "USD");
+		Money b = new Money(30.005, "USD");
+		
+		boolean result = a.equals(b);
+		
+		assertThat(result, is(true));
+	}
 
 }
