@@ -172,6 +172,16 @@ public class MoneyTest {
 	}
 
 	@Test
+	public void testGreaterThan(){
+		Money a = new Money(231.0, "EUR");
+		Money b = new Money(31.00, "EUR");
+		
+		boolean result = a.greaterThan(b);
+		
+		assertThat(result,is(true));
+	}
+	
+	@Test
 	public void testGreaterThanWhenFalse(){
 		Money a = new Money(231.00, "EUR");
 		Money b = new Money(231.01, "EUR");
