@@ -5,12 +5,16 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 public class MoneyTest {
 	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
 	
 	@Test
 	public void testMoneyHaveProperFormat(){
@@ -43,6 +47,18 @@ public class MoneyTest {
 		Money result = a.add(b);
 	
 		assertThat(result.toString(), is(equalTo("80,00 USD")));
+	}
+	
+	 
+	@Test
+	public void throwsExceptionWhenNegativeNumbersAreGiven() {
+		Money a = new Money(40.00, "USD");
+		Money b = new Money(20.00, "EUR");
+	    // arrange
+	    thrown.expect(IllegalArgumentException.class);
+	    thrown.expectMessage(equalTo("Currency mismatch"));
+	    // act
+	    a.add(b);
 	}
 
 }
