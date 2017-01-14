@@ -82,6 +82,14 @@ public class MoneyTest {
 	}
 	
 	@Test
+	public void testMiltiplyByWhenMultiplayerIsDouble(){
+		Money moneyA = new Money (25.00, "EUR");
+		Money result = moneyA.multiplyBy(0.5);
+		
+		assertThat(result.toString(), is(equalTo("12,50 EUR")));
+	}
+	
+	@Test
 	public void testAddMoney(){
 		Money a = new Money(50.00, "USD");
 		Money b = new Money(30.00, "USD");
