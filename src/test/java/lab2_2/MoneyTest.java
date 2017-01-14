@@ -38,6 +38,13 @@ public class MoneyTest {
 	}
 	
 	@Test
+	public void testRoundingUpCurrency(){
+		Money mon = new Money(20.006, "USD");
+		
+		assertThat(mon.toString(), is(equalTo("20,01 USD")));
+	}
+	
+	@Test
 	public void testIsMultiplayWorkingGood(){
 		Money moneyA = new Money (20, "EUR");
 		Money result = moneyA.multiplyBy(5.0);
