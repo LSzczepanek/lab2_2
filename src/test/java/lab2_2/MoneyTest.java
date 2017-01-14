@@ -241,4 +241,14 @@ public class MoneyTest {
 		assertThat(result,is(true));
 	}
 	
+	@Test
+	public void testLessThanWhenFalse(){
+		Money a = new Money(231.01, "EUR");
+		Money b = new Money(231.00, "EUR");
+		
+		boolean result = a.lessThan(b);
+		
+		assertThat(result,is(false));
+	}
+	
 }
