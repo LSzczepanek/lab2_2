@@ -251,4 +251,16 @@ public class MoneyTest {
 		assertThat(result,is(false));
 	}
 	
+	@Test
+	public void testLessOrEquals(){
+		Money a = new Money(231.00, "EUR");
+		Money b = new Money(231.00, "EUR");
+		Money c = new Money(231.01, "EUR");
+		
+		assertThat(a.lessOrEquals(b), is(true));
+		assertThat(a.lessOrEquals(c), is(true));
+		assertThat(c.lessOrEquals(a), is(false));
+		
+	}
+	
 }
