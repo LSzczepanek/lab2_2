@@ -172,12 +172,22 @@ public class MoneyTest {
 	}
 
 	@Test
-	public void testGreaterThan(){
+	public void testGreaterThanWhenFalse(){
 		Money a = new Money(231.00, "EUR");
 		Money b = new Money(231.01, "EUR");
 		
 		boolean result = a.greaterThan(b);
 		
 		assertThat(result,is(false));
+	}
+	
+	@Test
+	public void testGreaterThanWhenTrue(){
+		Money a = new Money(231.01, "EUR");
+		Money b = new Money(231.00, "EUR");
+		
+		boolean result = a.greaterThan(b);
+		
+		assertThat(result,is(true));
 	}
 }
