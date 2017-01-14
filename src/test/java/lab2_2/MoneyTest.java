@@ -51,6 +51,8 @@ public class MoneyTest {
 		assertThat(mon.toString(), is(equalTo("20,00 USD")));
 	}
 	
+	//One commit had 2 tests, this commit and change is just for information
+	//test below shuold be in another commit
 	@Test
 	public void testRoundingUpNegativeCurrency(){
 		Money mon = new Money(-20.005, "USD");
